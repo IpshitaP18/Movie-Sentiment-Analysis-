@@ -427,6 +427,8 @@ with tab1:
         st.markdown(frames_html, unsafe_allow_html=True)
 
 with tab2:
+    with open("models/metadata.pkl", "rb") as file:
+        total_records = pickle.load(file)
     st.markdown("#### 📽️ Box Office Ledger")
 
     try:
@@ -436,7 +438,7 @@ with tab2:
             total_records_html = (
                 "<div class='house-card' style='text-align:center;'>"
                 "<p class='preset-tag'>TOTAL RECORDS</p>"
-                "<h2 style='font-size:34px; margin:6px 0;'>50,000</h2>"
+                f"<h2 style='font-size:34px; margin:6px 0;'>{total_records:,}</h2>"
                 "</div>"
             )
             st.markdown(total_records_html, unsafe_allow_html=True)
