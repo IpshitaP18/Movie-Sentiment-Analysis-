@@ -1,5 +1,9 @@
 # 🎬 Movie Review Sentiment Analysis using NLP and Machine Learning
 
+![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
+![Streamlit](https://img.shields.io/badge/Streamlit-Web%20Apps-red.svg)
+![Machine Learning](https://img.shields.io/badge/ML-ScikitLearn-orange.svg)
+
 ## 📌 Project Overview
 
 Movie Review Sentiment Analysis is a Natural Language Processing (NLP) based Machine Learning project that classifies movie reviews into two categories:
