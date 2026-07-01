@@ -7,10 +7,6 @@ env/
 .ipynb_checkpoints/
 dataset/*.csv
 !dataset/.gitkeep
-models/*.pkl
-!models/.gitkeep
-images/*.png
-!images/.gitkeep
 .streamlit/
 .vscode/
 .idea/
