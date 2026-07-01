@@ -151,6 +151,10 @@ with open("models/tfidf.pkl","wb") as file:
         tfidf,
         file
     )
+    
+record_count = len(df)
+with open("models/metadata.pkl", "wb") as file:
+    pickle.dump(record_count, file)
 
 print("\nBest Model:")
 print(best_model_name)
