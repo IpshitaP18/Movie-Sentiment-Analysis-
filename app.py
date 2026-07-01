@@ -428,19 +428,19 @@ with tab1:
 
 with tab2:
     st.markdown("#### 📽️ Box Office Ledger")
-    try:
-        df = load_data()
-        sentiment_count = df["sentiment"].value_counts()
 
+    try:
         c1, c2 = st.columns(2)
+
         with c1:
             total_records_html = (
                 "<div class='house-card' style='text-align:center;'>"
                 "<p class='preset-tag'>TOTAL RECORDS</p>"
-                f"<h2 style='font-size:34px; margin:6px 0;'>{len(df):,}</h2>"
+                "<h2 style='font-size:34px; margin:6px 0;'>50,000</h2>"
                 "</div>"
             )
             st.markdown(total_records_html, unsafe_allow_html=True)
+
         with c2:
             target_balance_html = (
                 "<div class='house-card' style='text-align:center;'>"
@@ -450,29 +450,14 @@ with tab2:
             )
             st.markdown(target_balance_html, unsafe_allow_html=True)
 
-        fig, ax = plt.subplots(figsize=(7, 3.2))
-        fig.patch.set_facecolor('#0e0d0f')
-        ax.set_facecolor('#0e0d0f')
-
-        colors = ["#2f8f5b", "#a02334"] if sentiment_count.index[0] == 'positive' else ["#a02334", "#2f8f5b"]
-        bars = ax.bar(sentiment_count.index.str.upper(), sentiment_count.values, color=colors, width=0.4, edgecolor='none')
-
-        ax.set_ylabel("Review Count", fontsize=9, color="#b6ae9a")
-        ax.tick_params(colors='#b6ae9a', labelsize=9)
-        ax.grid(axis='y', color='#26232a', linestyle='-')
-        for spine in ax.spines.values():
-            spine.set_visible(False)
-
-        for bar in bars:
-            yval = bar.get_height()
-            ax.text(bar.get_x() + bar.get_width()/2, yval * 0.5, f"{yval:,}",
-                     ha='center', va='center', color='#ece6d6', fontweight='bold', fontsize=9)
-
-        st.pyplot(fig)
+        st.image(
+            "images/sentiment_distribution.png",
+            caption="Sentiment Distribution of IMDB Dataset"
+        )
 
     except Exception as e:
         st.error(f"Could not load the box office ledger: {e}")
-
+        
 with tab3:
     st.markdown("#### 🎬 Confusion Matrix — Director's Cut")
     st.write("Validation topology for the production pipeline configuration.")
